@@ -460,43 +460,52 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"5HwUs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-// Opdracht Plan:
-// Axios dependency toevoegen
-// Importen
-// Uitkomst is alle landen in een lijst
-// naam, vlag, hoeveelheid inwoners
-// Async en try catch block
-// API aanroepen met wait
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 async function fetchCountries() {
     try {
         const result = await _axiosDefault.default.get('https://restcountries.com/v2/all/');
-        //console.log(result.data[0]);
-        const countryNameList = result.data.map((country)=>{
-            return country.name;
-        });
-        //console.log(countryNameList)
         const countryListBlock = document.getElementById("ListOfCountries");
-        countryListBlock.innerHTML = listCountryElements(countryNameList);
+        countryListBlock.innerHTML = listCountryElements(result);
     } catch (e) {
         console.error(e);
     }
 }
 function listCountryElements(countryArr) {
-    let newCountryList = "";
-    for(let i = 0; i < countryArr.length; i++)newCountryList += "<div class='box'>" + countryArr[i] + "</div>";
-    // newCountryList += "</div>";
+    let newCountryList = "<ul style=\"list-style: none;\" class='wrapper'>";
+    for(let i = 0; i < countryArr.data.length; i++)newCountryList += `<li class='box'>
+        <div class="countryName" id=${determineRegionColour(countryArr.data[i].region)}>${countryArr.data[i].name}</div> 
+        <img class="flag" src=${countryArr.data[i].flags.png} alt="flag">
+        <div class="population">Has a population of ${countryArr.data[i].population} people</divclass>
+        </li>`;
+    newCountryList += "</ul>";
     return newCountryList;
 }
-fetchCountries(); // End point voor All begruiken https://restcountries.com/v3.1/all
- //     response terug in vaiabele
- //
- // loop over object met map functie per element een aantal velden eruit halen
- //
- // opbouwen van het element in innerHTML
- //
- // Tonen
+function determineRegionColour(regionName) {
+    let regionColour = "";
+    switch(regionName){
+        case 'Asia':
+            console.log('Asia');
+            regionColour = 'Asia';
+            break;
+        case 'Europe':
+            regionColour = 'Europe';
+            break;
+        case 'Americas':
+            regionColour = 'Americas';
+            break;
+        case 'Africa':
+            regionColour = 'Africa';
+            break;
+        case 'Oceania':
+            regionColour = 'Oceania';
+            break;
+        default:
+            regionColour = 'Rest';
+    }
+    return regionColour;
+}
+fetchCountries();
 
 },{"axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1IeuP":[function(require,module,exports) {
 module.exports = require('./lib/axios');

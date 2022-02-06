@@ -59,15 +59,15 @@ de `package.json`.
 _Let op_: het is uitdagender om jouw eigen stappenplan te maken. Als je niet zo goed weet waar je moet beginnen, kun je
 onderstaand stappenplan gebruiken:
 
-1. Installeer en importeer Axios;
-2. Neem de documentatie van de REST Countries API goed door. Welk endpoint heb je nodig om informatie over alle landen
+1.v Installeer en importeer Axios;
+2.v Neem de documentatie van de REST Countries API goed door. Welk endpoint heb je nodig om informatie over alle landen
    op te halen?
-3. Schrijf een asynchrone functie die, met behulp van Axios, een GET-request maakt naar het juiste endpoint. Log de
+3.v Schrijf een asynchrone functie die, met behulp van Axios, een GET-request maakt naar het juiste endpoint. Log de
    response in de console en bestudeer de data goed: hoe is het opgebouwd?
-4. Probeer eens om de _naam_ van het _allereerste_ land te loggen in de console, welk pad moet je hiervoor volgen?
-5. Maak een `<ul>`-tag in de HTML die je als referentie kunt gebruiken in jouw JavaScript bestand;
-6. Zorg ervoor dat de naam van het allereerste land wordt weergegeven als `<li>`-tag in het lijst-element op de pagina;
-7. Zorg er nu ook voor dat de populatie (`Has a population of [amount] people`) daaronder wordt weergegeven;
+4.v Probeer eens om de _naam_ van het _allereerste_ land te loggen in de console, welk pad moet je hiervoor volgen?
+5.v Maak een `<ul>`-tag in de HTML die je als referentie kunt gebruiken in jouw JavaScript bestand;
+6.v Zorg ervoor dat de naam van het allereerste land wordt weergegeven als `<li>`-tag in het lijst-element op de pagina;
+7.v Zorg er nu ook voor dat de populatie (`Has a population of [amount] people`) daaronder wordt weergegeven;
 8. Schrijf een aparte functie die één regio-naam verwacht, en op basis van deze regio de correcte kleur-naam als string
    teruggeeft. Gebruik deze, om de naam van het land in de juiste kleur weer te geven op de pagina. _Tip_: zorg ervoor
    dat je CSS-classes maakt voor alle regio-kleuren!

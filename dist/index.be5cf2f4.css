@@ -2,17 +2,58 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 10px;
-    background-color: #fff;
-    color: #444;
 }
 
 .wrapper > .box {
     display: flex;
     flex-direction: row;
     background-color: lightblue;
-    color: black;
+}
+
+.box{
+    justify-content: space-between;
+    flex-wrap: wrap;
     border-radius: 5px;
     padding: 20px;
     font-size: 100%;
 }
+.box > div{
+    display: flex;
+    flex-direction: row;
+}
+
+.countryName{
+    font-family: Helvetica, serif;
+    font-size: large;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+.flag{
+    width: 30px;
+    height: 30px;
+}
+
+#Europe{
+    color: yellow;
+}
+#Asia{
+    color: red;
+}
+#Americas{
+    color: green;
+}
+#Oceania{
+    color: blueviolet;
+}
+#Africa{
+    color: blue;
+}
+#Rest{
+    color: saddlebrown;
+}
+
 /*# sourceMappingURL=index.be5cf2f4.css.map */

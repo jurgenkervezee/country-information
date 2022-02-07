@@ -473,11 +473,14 @@ async function fetchCountries() {
 }
 function listCountryElements(countryArr) {
     let newCountryList = "<ul style=\"list-style: none;\" class='wrapper'>";
-    for(let i = 0; i < countryArr.data.length; i++)newCountryList += `<li class='box'>
-        <div class="countryName" id=${determineRegionColour(countryArr.data[i].region)}>${countryArr.data[i].name}</div> 
-        <img class="flag" src=${countryArr.data[i].flags.png} alt="flag">
-        <div class="population">Has a population of ${countryArr.data[i].population} people</divclass>
+    for(let i = 0; i < countryArr.data.length; i++){
+        const { name , population , flags , region  } = countryArr.data[i];
+        newCountryList += `<li class='box'>
+        <div class="countryName" id=${determineRegionColour(region)}>${name}</div> 
+        <img class="flag" src=${flags.png} alt="flag">
+        <div class="population">Has a population of ${population} people</div>
         </li>`;
+    }
     newCountryList += "</ul>";
     return newCountryList;
 }

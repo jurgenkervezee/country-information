@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 async function fetchCountries() {
-
     try {
         const result = await axios.get('https://restcountries.com/v2/all/');
         const countryListBlock = document.getElementById("ListOfCountries");
@@ -16,10 +15,12 @@ function listCountryElements(countryArr) {
     let newCountryList = "<ul style=\"list-style: none;\" class='wrapper'>";
 
     for (let i = 0; i < countryArr.data.length; i++) {
+        const { name , population, flags, region } = countryArr.data[i];
+
         newCountryList += `<li class='box'>
-        <div class="countryName" id=${(determineRegionColour(countryArr.data[i].region))}>${countryArr.data[i].name}</div> 
-        <img class="flag" src=${countryArr.data[i].flags.png} alt="flag">
-        <div class="population">Has a population of ${countryArr.data[i].population} people</divclass>
+        <div class="countryName" id=${(determineRegionColour(region))}>${name}</div> 
+        <img class="flag" src=${flags.png} alt="flag">
+        <div class="population">Has a population of ${population} people</div>
         </li>`;
     }
     newCountryList += "</ul>";
@@ -49,10 +50,8 @@ function determineRegionColour(regionName) {
         default:
             regionColour = 'Rest'
     }
-
     return regionColour;
 }
 
 fetchCountries();
-
 

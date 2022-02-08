@@ -3,8 +3,14 @@ import axios from 'axios';
 async function fetchCountries() {
     try {
         const result = await axios.get('https://restcountries.com/v2/all/');
+
+        const sortedResult = result.data;
+        sortedResult.sort((a,b)=> {
+            return a.population - b.population
+        });
+
         const countryListBlock = document.getElementById("ListOfCountries");
-        countryListBlock.innerHTML = listCountryElements(result);
+        countryListBlock.innerHTML = listCountryElements(sortedResult);
 
     } catch (e) {
         console.error(e);
@@ -14,10 +20,11 @@ async function fetchCountries() {
 function listCountryElements(countryArr) {
     let newCountryList = "<ul style=\"list-style: none;\" class='wrapper'>";
 
-    for (let i = 0; i < countryArr.data.length; i++) {
-        const { name , population, flags, region } = countryArr.data[i];
+    for (let i = 0; i < countryArr.length; i++) {
+        const { name , population, flags, region } = countryArr[i];
 
-        newCountryList += `<li class='box'>
+        newCountryList += `
+        <li class='box'>
         <div class="countryName" id=${(determineRegionColour(region))}>${name}</div> 
         <img class="flag" src=${flags.png} alt="flag">
         <div class="population">Has a population of ${population} people</div>

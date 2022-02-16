@@ -140,12 +140,12 @@
       this[globalName] = mainExports;
     }
   }
-})({"1Mq12":[function(require,module,exports) {
+})({"6BPv4":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "4a236f9275d0a351";
-module.bundle.HMR_BUNDLE_ID = "b5b6c481d56a3cb1";
+module.bundle.HMR_BUNDLE_ID = "ab49cac0eddb7c3f";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -458,63 +458,59 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"5HwUs":[function(require,module,exports) {
+},{}],"1hFYX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-async function fetchCountries() {
+const country = {
+};
+function handleClick() {
+}
+function handleInputChange(e) {
+    country.searchValue = e.target.value;
+}
+function handleSubmit(e) {
+    e.preventDefault();
+    console.log("Handle submit!!!!");
+    if (country.searchValue) fetchCountry(country.searchValue);
+    else alert("Graag een land invoeren");
+}
+const searchButton = document.getElementById("search-button");
+searchButton.addEventListener("click", handleClick);
+const searchBar = document.getElementById("search-bar");
+searchBar.addEventListener("keyup", handleInputChange);
+const searchForm = document.getElementById("search-form");
+searchForm.addEventListener("submit", handleSubmit);
+async function fetchCountry(nameCountry) {
     try {
-        const result = await _axiosDefault.default.get('https://restcountries.com/v2/all/');
-        console.log(result.data[0]);
-        const sortedResult = result.data;
-        sortedResult.sort((a, b)=>{
-            return a.population - b.population;
-        });
-        const countryListBlock = document.getElementById("ListOfCountries");
-        countryListBlock.innerHTML = listCountryElements(sortedResult);
+        const resultInitial = await _axiosDefault.default.get('https://restcountries.com/v2/name/' + nameCountry + "?fullText=true");
+        const result = resultInitial.data[0];
+        country.name = result.name;
+        country.currency = result.currencies[0].name;
+        country.language = result.languages[0].name;
+        country.population = result.population;
+        country.capital = result.capital;
+        country.subregion = result.subregion;
+        country.flag = result.flag;
+        console.log(result);
+        console.log(country);
+        printCountry(country);
     } catch (e) {
         console.error(e);
     }
 }
-function listCountryElements(countryArr) {
-    let newCountryList = "<ul style=\"list-style: none;\" class='wrapper'>";
-    for(let i = 0; i < countryArr.length; i++){
-        const { name , population , flags , region  } = countryArr[i];
-        newCountryList += `
-        <li class='box'>
-        <div class="countryName" id=${determineRegionColour(region)}>${name}</div> 
-        <img class="flag" src=${flags.png} alt="flag">
-        <div class="population">Has a population of ${population} people</div>
-        </li>`;
-    }
-    newCountryList += "</ul>";
-    return newCountryList;
+function printCountry() {
+    const countryDetailsBlock = document.getElementById("showCountryDetails");
+    countryDetailsBlock.innerHTML = `
+    <div class="box">
+        <img src=${country.flag} width="30" height="30" id="flag-image">
+        <h3>${country.name}</h3>
+        <div id="country-details">${country.name} is situated in ${country.subregion}. 
+        It has a population of ${country.population} people. 
+        The capital is ${country.capital} and you can pay with ${country.currency}'s. 
+        They speak ${country.language}.</div>
+    </div>`;
 }
-function determineRegionColour(regionName) {
-    let regionColour = "";
-    switch(regionName){
-        case 'Asia':
-            console.log('Asia');
-            regionColour = 'Asia';
-            break;
-        case 'Europe':
-            regionColour = 'Europe';
-            break;
-        case 'Americas':
-            regionColour = 'Americas';
-            break;
-        case 'Africa':
-            regionColour = 'Africa';
-            break;
-        case 'Oceania':
-            regionColour = 'Oceania';
-            break;
-        default:
-            regionColour = 'Rest';
-    }
-    return regionColour;
-}
-fetchCountries();
 
 },{"axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1IeuP":[function(require,module,exports) {
 module.exports = require('./lib/axios');
@@ -2107,6 +2103,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequirecb08")
+},{}]},["6BPv4","1hFYX"], "1hFYX", "parcelRequirecb08")
 
-//# sourceMappingURL=index.d56a3cb1.js.map
+//# sourceMappingURL=index2.eddb7c3f.js.map

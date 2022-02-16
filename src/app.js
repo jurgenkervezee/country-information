@@ -4,6 +4,7 @@ async function fetchCountries() {
     try {
         const result = await axios.get('https://restcountries.com/v2/all/');
 
+        console.log(result.data[0]);
         const sortedResult = result.data;
         sortedResult.sort((a,b)=> {
             return a.population - b.population

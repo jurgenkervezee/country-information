@@ -1,0 +1,57 @@
+.button{
+    background-color: #4CAF50;
+    color: black;
+    /*padding: 20px;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /*margin: 4px 2px;*/
+    cursor: pointer;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width: 10%;
+    border: solid 1px;
+}
+#search-form{
+    margin-left: 50px;
+}
+
+.showCountryDetails{
+    margin-left: 50px;
+}
+.search-bar{
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    text-decoration: none;
+    border: solid 1px grey;
+    color: black;
+    width: 40%;
+    font-size: 16px;
+    display: inline-block;
+    margin-left: 20px;
+    text-align:center;
+}
+
+.box{
+    border-radius: 12px;
+    border: solid 1px lightblue;
+    box-shadow: 20px 20px 50px grey;
+    color: black;
+    display: flex;
+    width: 250px;
+    height: 150px;
+    /*justify-content: flex-start;*/
+    flex-wrap: wrap;
+    padding: 20px;
+    /*font-size: 100%;*/
+    margin-left: 10px;
+}
+
+h3{
+    font-size: 25px;
+    margin-left: 10px;
+}
+.flag-image{
+    vertical-align: center;
+}

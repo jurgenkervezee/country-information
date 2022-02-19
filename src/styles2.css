@@ -12,6 +12,7 @@
     border-bottom-right-radius: 12px;
     width: 10%;
     border: solid 1px;
+    margin-left: -5px;
 }
 #search-form{
     margin-left: 50px;
@@ -20,7 +21,7 @@
 .showCountryDetails{
     margin-left: 50px;
 }
-.search-bar{
+#search-bar{
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     text-decoration: none;
@@ -40,12 +41,12 @@
     color: black;
     display: flex;
     width: 250px;
-    height: 150px;
+    /*     height: 150px; */
     /*justify-content: flex-start;*/
     flex-wrap: wrap;
     padding: 20px;
     /*font-size: 100%;*/
-    margin-left: 10px;
+    margin-left:45px;
 }
 
 h3{
@@ -54,4 +55,10 @@ h3{
 }
 .flag-image{
     vertical-align: center;
+}
+#topofbox{
+    display: flex;
+    /*background-color: blueviolet;*/
+    align-items: center;
+    justify-content: space-between;
 }

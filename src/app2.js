@@ -51,12 +51,14 @@ async function fetchCountry(nameCountry) {
     }
 }
 
-function printCountry(){
+function printCountry() {
     const countryDetailsBlock = document.getElementById("showCountryDetails");
     countryDetailsBlock.innerHTML = `
     <div class="box">
-        <img src=${country.flag} width="30" height="30" id="flag-image">
-        <h3>${country.name}</h3>
+       <span id="topofbox">
+                <img src=${country.flag} width="30" height="30" class="flag-image">
+                <h3>${country.name}</h3>    
+       </span>  
         <div id="country-details">${country.name} is situated in ${country.subregion}. 
         It has a population of ${country.population} people. 
         The capital is ${country.capital} and you can pay with ${country.currency}'s. 
